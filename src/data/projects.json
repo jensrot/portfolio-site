@@ -1,0 +1,71 @@
+[
+    {
+        "github_link": "https://github.com/jensrott/Social-Cycling",
+        "live_link": "https://social-cycling.netlify.app/",
+        "title": "Cycling Social Network",
+        "description": "The social network which brings cyclists together to ride in group.",
+        "technologies": [
+            "MongoDB",
+            "Express",
+            "React",
+            "Node.js"
+        ]
+    },
+    {
+        "github_link": "https://github.com/jensrott/book-tracking-app",
+        "live_link": "https://book-tracker-app.netlify.app/",
+        "title": "Book Tracker",
+        "description": "Keep track of the books you are currently reading.",
+        "technologies": [
+            "HTML",
+            "CSS",
+            "Javascript"
+        ]
+    },
+    {
+        "github_link": "https://github.com/jensrott/bachelorproef-demonstrator-site",
+        "live_link": "https://eloquent-clarke-888930.netlify.app/",
+        "title": "Bachelor thesis",
+        "description": " For my bachelor thesis I created a domotica demonstrator tool for young families. I did this in collaboration with Niko.",
+        "technologies": [
+            "React",
+            "Gatsby",
+            "Home Assistant",
+            "Express"
+        ]
+    },
+    {
+        "github_link": "https://github.com/jensrott/badminton-vlaanderen",
+        "live_link": "https://www.shuttlekids.be/home/",
+        "title": "Shuttlekids.org",
+        "description": "Shuttlekids.org is a project in collaboration with Badminton Vlaanderen. Which was assigned by the Artevelde University College. I created the structure of the site and was one of the web developers who developed the site.",
+        "technologies": [
+            "Wordpress",
+            "HTML",
+            "CSS",
+            "Javascript"
+        ]
+    },
+    {
+        "github_link": "https://github.com/jensrott/quotes-generator-app",
+        "live_link": "https://quotes-fetcher-app.netlify.app/",
+        "title": "Quotes generator",
+        "description": "Search quotes from famous people.",
+        "technologies": [
+            "Vue",
+            "Vuex",
+            "Material UI"
+        ]
+    },
+    {
+        "github_link": "https://github.com/jensrott/movie-tracking-app",
+        "live_link": "https://github.com/jensrott/movie-tracking-app",
+        "title": "Movie Tracker",
+        "description": "Website which you can use to keep track of your favorite movies.",
+        "technologies": [
+            "React",
+            "Redux",
+            "Material UI"
+        ]
+    }
+]
