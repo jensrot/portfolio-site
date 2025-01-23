@@ -467,6 +467,21 @@
   "resolved" "https://registry.npmjs.org/@testing-library/user-event/-/user-event-7.2.1.tgz"
   "version" "7.2.1"
 
+"@tsparticles/engine@^3.0.2":
+  "integrity" "sha512-mqdSG4gkLbOUck/Wqk8rR4duc6NCnmtJfSPkIvVOUpo/jk2kAGaxRVSU9n0sySxZRx+CGbpAFVVdjdtB1N+70A=="
+  "resolved" "https://registry.npmjs.org/@tsparticles/engine/-/engine-3.8.0.tgz"
+  "version" "3.8.0"
+
+"@tsparticles/react@^3.0.0":
+  "integrity" "sha512-hjGEtTT1cwv6BcjL+GcVgH++KYs52bIuQGW3PWv7z3tMa8g0bd6RI/vWSLj7p//NZ3uTjEIeilYIUPBh7Jfq/Q=="
+  "resolved" "https://registry.npmjs.org/@tsparticles/react/-/react-3.0.0.tgz"
+  "version" "3.0.0"
+
+"@types/aos@^3.0.7":
+  "integrity" "sha512-sEhyFqvKauUJZDbvAB3Pggynrq6g+2PS4XB3tmUr+mDL1gfDJnwslUC4QQ7/l8UD+LWpr3RxZVR/rHoZrLqZVg=="
+  "resolved" "https://registry.npmjs.org/@types/aos/-/aos-3.0.7.tgz"
+  "version" "3.0.7"
+
 "@types/estree@^1.0.6":
   "integrity" "sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw=="
   "resolved" "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz"
@@ -702,6 +717,15 @@
     "normalize-path" "^3.0.0"
     "picomatch" "^2.0.4"
 
+"aos@^2.3.4":
+  "integrity" "sha512-zh/ahtR2yME4I51z8IttIt4lC1Nw0ktsFtmeDzID1m9naJnWXhCoARaCgNOGXb5CLy3zm+wqmRAEgMYB5E2HUw=="
+  "resolved" "https://registry.npmjs.org/aos/-/aos-2.3.4.tgz"
+  "version" "2.3.4"
+  dependencies:
+    "classlist-polyfill" "^1.0.3"
+    "lodash.debounce" "^4.0.6"
+    "lodash.throttle" "^4.0.1"
+
 "argparse@^2.0.1":
   "integrity" "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
   "resolved" "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz"
@@ -813,6 +837,11 @@
     "readdirp" "~3.3.0"
   optionalDependencies:
     "fsevents" "~2.1.2"
+
+"classlist-polyfill@^1.0.3":
+  "integrity" "sha512-GzIjNdcEtH4ieA2S8NmrSxv7DfEV5fmixQeyTmqmRmRJPGpRBaSnA2a0VrCjyT8iW8JjEdMbKzDotAJf+ajgaQ=="
+  "resolved" "https://registry.npmjs.org/classlist-polyfill/-/classlist-polyfill-1.2.0.tgz"
+  "version" "1.2.0"
 
 "color-convert@^1.9.0":
   "integrity" "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg=="
@@ -1346,10 +1375,20 @@
   dependencies:
     "p-locate" "^5.0.0"
 
+"lodash.debounce@^4.0.6":
+  "integrity" "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow=="
+  "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
+  "version" "4.0.8"
+
 "lodash.merge@^4.6.2":
   "integrity" "sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ=="
   "resolved" "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.2.tgz"
   "version" "4.6.2"
+
+"lodash.throttle@^4.0.1":
+  "integrity" "sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ=="
+  "resolved" "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
+  "version" "4.1.1"
 
 "lodash@^4.17.11", "lodash@^4.17.13":
   "integrity" "sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A=="
@@ -1502,11 +1541,6 @@
   dependencies:
     "isarray" "0.0.1"
 
-"pathseg@^1.2.0":
-  "integrity" "sha512-+pQS7lTaoVIXhaCW7R3Wd/165APzZHWzYVqe7dxzdupxQwebgpBaCmf0/XZwmoA/rkDq3qvzO0qv4d5oFVrBRw=="
-  "resolved" "https://registry.npmjs.org/pathseg/-/pathseg-1.2.0.tgz"
-  "version" "1.2.0"
-
 "picocolors@^1.0.0":
   "integrity" "sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ=="
   "resolved" "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
@@ -1560,7 +1594,7 @@
   "resolved" "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   "version" "1.2.3"
 
-"react-dom@*", "react-dom@^19.0.0":
+"react-dom@*", "react-dom@^19.0.0", "react-dom@>=16.8.0":
   "integrity" "sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-19.0.0.tgz"
   "version" "19.0.0"
@@ -1571,14 +1605,6 @@
   "integrity" "sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.12.0.tgz"
   "version" "16.12.0"
-
-"react-particles-js@^3.2.1":
-  "integrity" "sha512-sZ6jmwbbHQOtqsChlI7X9iee+iN4C1g9BLch2f9Ck9dvJmAaVT8/kQB1gOQLROFKIFIzQyt34gXzrI7ZNwNspQ=="
-  "resolved" "https://registry.npmjs.org/react-particles-js/-/react-particles-js-3.2.1.tgz"
-  "version" "3.2.1"
-  dependencies:
-    "lodash" "^4.17.11"
-    "tsparticles" "^1.13.6"
 
 "react-refresh@^0.14.0":
   "integrity" "sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ=="
@@ -1614,7 +1640,7 @@
     "tiny-invariant" "^1.0.2"
     "tiny-warning" "^1.0.0"
 
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0", "react@^19.0.0", "react@>=15":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0", "react@^19.0.0", "react@>=15", "react@>=16.8.0":
   "integrity" "sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-19.0.0.tgz"
   "version" "19.0.0"
@@ -1834,19 +1860,6 @@
   "integrity" "sha512-xCt/TOAc+EOHS1XPnijD3/yzpH6qg2xppZO1YDqGoVsNXfQfzHpOdNuXwrwOU8u4ITXJyDCTyt8w5g1sZv9ynQ=="
   "resolved" "https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-2.0.0.tgz"
   "version" "2.0.0"
-
-"tslib@^2.0.0":
-  "integrity" "sha512-lTqkx847PI7xEDYJntxZH89L2/aXInsyF2luSafe/+0fHOMjlBNXdH6th7f70qxLDhul7KZK0zC8V5ZIyHl0/g=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.0.0.tgz"
-  "version" "2.0.0"
-
-"tsparticles@^1.13.6":
-  "integrity" "sha512-yvk613dW6aTqziDUTH2O5q+8K5MyNMnZkqD1Od1FBWi+ekFmwUwVtWGTiEmmhq5+D/a3AEe60TQCLekT910b2w=="
-  "resolved" "https://registry.npmjs.org/tsparticles/-/tsparticles-1.15.1.tgz"
-  "version" "1.15.1"
-  dependencies:
-    "pathseg" "^1.2.0"
-    "tslib" "^2.0.0"
 
 "type-check@^0.4.0", "type-check@~0.4.0":
   "integrity" "sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew=="

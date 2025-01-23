@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
 import "./home.scss";
-import Particles from "../../components/Particles";
 
 export const Home: React.FC = () => {
   return (
     <div id="main">
-      <Particles />
       <div className="card-border">
         <div id="wrapper" className="card">
           <div className="main-title">
-            <h1>Jens Rottiers</h1>
+            <h1 data-aos="fade-down">Jens Rottiers</h1>
           </div>
           <div className="about-text">
             <p>
