@@ -15,8 +15,8 @@ interface Project {
 }
 
 export const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Array<Project>>();
   const [allProjects, setAllProjects] = useState<Array<Project>>(); // The original list of all projects
+  const [projects, setProjects] = useState<Array<Project>>();
 
   useEffect(() => {
     setAllProjects(projectsData);
@@ -47,7 +47,7 @@ export const Projects: React.FC = () => {
           </a>
         </div>
         <div id="projects" className="cards-container">
-          {projects?.map((project, index) => (
+          {projects?.map((project: Project, index: number) => (
             <div className="card" key={index}>
               <div className="card__icons">
                 <li className="icon">

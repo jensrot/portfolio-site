@@ -10,11 +10,11 @@ export const Home: React.FC = () => {
       <div className="card-border">
         <div id="wrapper" className="card">
           <div className="main-title">
-            <h1 data-aos="fade-down">Jens Rottiers</h1>
+            <h1>Jens Rottiers</h1>
           </div>
           <div className="about-text">
             <p>
-              I'm a junior software developer and Alumni of <br />
+              I'm a test automation developer and Alumni of <br />
               <span>
                 <a
                   href="https://www.arteveldehogeschool.be/opleidingen/bachelor/new-media-development-multimediaproductie"

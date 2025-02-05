@@ -59,8 +59,8 @@ const Particles: React.FC<ParticlesProps> = ({
             const { w, h } = canvasSize.current;
             const x = mousePosition.x - rect.left - w / 2;
             const y = mousePosition.y - rect.top - h / 2;
-            const inside = x < w / 2 && x > -w / 2 && y < h / 2 && y > -h / 2;
-            if (inside) {
+            const insideCanvas: boolean = x < w / 2 && x > -w / 2 && y < h / 2 && y > -h / 2;
+            if (insideCanvas) {
                 mouse.current.x = x;
                 mouse.current.y = y;
             }
@@ -108,7 +108,7 @@ const Particles: React.FC<ParticlesProps> = ({
         const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
         const dx = (Math.random() - 0.5) * 0.2;
         const dy = (Math.random() - 0.5) * 0.2;
-        const magnetism = 0.1 + Math.random() * 4;
+        const magnetism = 0.1 + Math.random() * 2;
         return { x, y, translateX, translateY, size, alpha, targetAlpha, dx, dy, magnetism };
     };
 
@@ -120,7 +120,7 @@ const Particles: React.FC<ParticlesProps> = ({
             context.current.translate(translateX, translateY);
             context.current.beginPath();
             context.current.arc(x, y, size, 0, 2 * Math.PI);
-            context.current.fillStyle = `rgba(${rgb.join(", ")}, ${alpha})`;
+            context.current.fillStyle = `rgba(${rgb.join(", ")}, ${alpha})`; // TODO: create a random color for each circle.
             context.current.fill();
             context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
 
@@ -158,7 +158,8 @@ const Particles: React.FC<ParticlesProps> = ({
 
     const animate = () => {
         clearContext();
-        circles.current.forEach((circle: Circle, i: number) => {
+        circles.current.forEach((circle: Circle, circleNumber: number) => {
+
             // Handle the alpha value
             const edge = [
                 circle.x + circle.translateX - circle.size, // distance from left edge
@@ -190,12 +191,13 @@ const Particles: React.FC<ParticlesProps> = ({
                 circle.y > canvasSize.current.h + circle.size
             ) {
                 // remove the circle from the array
-                circles.current.splice(i, 1);
+                circles.current.splice(circleNumber, 1);
                 // create a new circle
                 const newCircle = circleParams();
                 drawCircle(newCircle);
                 // update the circle position
             } else {
+                // Continue drawing circles
                 drawCircle(
                     {
                         ...circle,
