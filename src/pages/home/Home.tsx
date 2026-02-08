@@ -61,6 +61,15 @@ export const Home: React.FC = () => {
                   <i className="fas fa-envelope"></i>
                 </a>
               </li>
+              <li className="icon">
+                <a
+                  href="https://x.com/RottiersJe72450"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fab fa-x-twitter"></i>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
