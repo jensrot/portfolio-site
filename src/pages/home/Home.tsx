@@ -27,7 +27,7 @@ export const Home: React.FC = () => {
               I'm a test automation developer and Alumni of <br />
               <span>
                 <a
-                  href="https://www.arteveldehogeschool.be/opleidingen/bachelor/new-media-development-multimediaproductie"
+                  href="https://www.arteveldehogeschool.be/nl/opleidingen/bachelor/interactive-media-development"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
