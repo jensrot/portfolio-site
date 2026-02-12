@@ -1,15 +1,7 @@
-$mb: 1.8rem;
-$br-card: 0.45rem;
-
-.card {
-  box-shadow: rgba(0, 19, 25, 0.2) 0px 1px 2px,
-    rgba(0, 19, 25, 0.1) 0px 4px 12px;
-  background-color: #fff;
-  color: #000;
-  padding: 1.3rem;
-  border-radius: $br-card;
-  animation: fade-in 2s;
-}
+$margin-bottom-base: 1.8rem;
+$border-radius-card: 0.45rem;
+$transition-duration: 500ms;
+$fade-in-duration: 1.5s;
 
 @keyframes fade-in {
   from {
@@ -21,14 +13,24 @@ $br-card: 0.45rem;
   }
 }
 
+.card {
+  box-shadow: rgba(0, 19, 25, 0.2) 0px 1px 2px,
+    rgba(0, 19, 25, 0.1) 0px 4px 12px;
+  background-color: #fff;
+  color: #000;
+  padding: 1.3rem;
+  border-radius: $border-radius-card;
+  animation: fade-in $fade-in-duration ease-in-out;
+}
+
 // Linear gradient
 .card-border {
-  transition: background 500ms ease-in-out, padding 500ms ease-in-out;
+  transition: background $transition-duration ease-in-out, padding $transition-duration ease-in-out;
 
   &:hover {
     background: linear-gradient(to right, #434e76, #ffb300);
     padding: 4px;
-    border-radius: $br-card;
+    border-radius: $border-radius-card;
   }
 }
 
@@ -62,7 +64,7 @@ $br-card: 0.45rem;
 
     .about-text {
       margin-top: 0;
-      margin-bottom: $mb;
+      margin-bottom: $margin-bottom-base;
 
       span {
         a {
@@ -81,7 +83,7 @@ $br-card: 0.45rem;
 
     .buttons-container {
       width: 100%;
-      margin-bottom: $mb;
+      margin-bottom: $margin-bottom-base;
 
       a {
         button {
@@ -92,12 +94,36 @@ $br-card: 0.45rem;
           font-weight: bold;
           padding: 17px 10px;
           border-radius: 0.5rem;
-          transition: background-color 500ms ease-in-out,
-            color 500ms ease-in-out;
+          color: #000;
+          transition: background-color $transition-duration ease-in-out,
+            color $transition-duration ease-in-out;
+          position: relative;
+          overflow: hidden;
+
+          .button-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity $transition-duration ease-in-out;
+            pointer-events: none;
+            z-index: 0;
+          }
+
+          .button-text {
+            position: relative;
+            z-index: 1;
+          }
 
           &:hover {
             background-color: #2a314c;
             color: #fff;
+
+            .button-particles {
+              opacity: 1;
+            }
           }
         }
       }
@@ -115,7 +141,7 @@ $br-card: 0.45rem;
             padding: 0 1.7rem;
 
             i {
-              transition: transform 300ms ease-in-out;
+              transition: transform $transition-duration ease-in-out;
 
               &:hover {
                 transform: scale(1.035);

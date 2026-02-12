@@ -17,6 +17,7 @@ interface Project {
 export const Projects: React.FC = () => {
   const [allProjects, setAllProjects] = useState<Array<Project>>(); // The original list of all projects
   const [projects, setProjects] = useState<Array<Project>>();
+  const [filterKey, setFilterKey] = useState<number>(0); // Key to trigger re-animation
 
   useEffect(() => {
     setAllProjects(projectsData);
@@ -27,13 +28,14 @@ export const Projects: React.FC = () => {
     if (tag) {
       const filteredProjectsBasedOnTag = allProjects?.filter(project => project.technologies.includes(tag));
       setProjects(filteredProjectsBasedOnTag);
+      setFilterKey(prev => prev + 1); // Increment key to trigger re-animation
     }
   }
 
   return (
     <div id="main">
       <div className="container">
-        <div className="container__start">
+        <div className="container__start" key={`buttons-${filterKey}`}>
           <Link className="btn" to="/">
             <h1>Home</h1>
           </Link>
@@ -48,7 +50,7 @@ export const Projects: React.FC = () => {
         </div>
         <div id="projects" className="cards-container">
           {projects?.map((project: Project, index: number) => (
-            <div className="card" key={index}>
+            <div className="card" key={`${filterKey}-${index}`}>
               <div className="card__icons">
                 <li className="icon">
                   <a

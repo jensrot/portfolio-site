@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import Particles from "../../components/Particles";
+import { createRandomNumberBetweenTwoValues } from "../../utils/create-random-number-between-two-values";
 
 import "./home.scss";
 
@@ -29,7 +31,14 @@ export const Home: React.FC = () => {
           </div>
           <div className="buttons-container">
             <Link to="/projects">
-              <button>Projects</button>
+              <button>
+                <Particles
+                  className="button-particles"
+                  quantity={createRandomNumberBetweenTwoValues(30, 70)}
+                  staticity={30}
+                />
+                <span className="button-text">Projects</span>
+              </button>
             </Link>
           </div>
           <div className="social-container">
