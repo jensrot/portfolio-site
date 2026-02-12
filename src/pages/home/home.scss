@@ -3,16 +3,6 @@ $border-radius-card: 0.45rem;
 $transition-duration: 500ms;
 $fade-in-duration: 1.5s;
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .card {
   box-shadow: rgba(0, 19, 25, 0.2) 0px 1px 2px,
     rgba(0, 19, 25, 0.1) 0px 4px 12px;

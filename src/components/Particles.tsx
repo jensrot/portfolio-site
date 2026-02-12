@@ -23,10 +23,24 @@ const Particles: React.FC<ParticlesProps> = ({
     vx = 0,
     vy = 0,
 }) => {
+
+    type Circle = {
+        x: number;
+        y: number;
+        translateX: number;
+        translateY: number;
+        size: number;
+        alpha: number;
+        targetAlpha: number;
+        dx: number;
+        dy: number;
+        magnetism: number;
+    }
+
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const canvasContainerRef = useRef<HTMLDivElement>(null);
     const context = useRef<CanvasRenderingContext2D | null>(null);
-    const circles = useRef<any[]>([]);
+    const circles = useRef<Circle[]>([]);
     const mousePosition = useMousePosition();
     const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
     const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
@@ -84,19 +98,6 @@ const Particles: React.FC<ParticlesProps> = ({
             context.current.scale(dpr, dpr);
         }
     };
-
-    type Circle = {
-        x: number;
-        y: number;
-        translateX: number;
-        translateY: number;
-        size: number;
-        alpha: number;
-        targetAlpha: number;
-        dx: number;
-        dy: number;
-        magnetism: number;
-    }
 
     const circleParams = (): Circle => {
         const x = Math.floor(Math.random() * canvasSize.current.w);
@@ -158,8 +159,9 @@ const Particles: React.FC<ParticlesProps> = ({
 
     const animate = () => {
         clearContext();
-        circles.current.forEach((circle: Circle, circleNumber: number) => {
+        const newCircles: Circle[] = [];
 
+        circles.current.forEach((circle: Circle) => {
             // Handle the alpha value
             const edge = [
                 circle.x + circle.translateX - circle.size, // distance from left edge
@@ -168,7 +170,7 @@ const Particles: React.FC<ParticlesProps> = ({
                 canvasSize.current.h - circle.y - circle.translateY - circle.size, // distance from bottom edge
             ];
             const closestEdge = edge.reduce((a, b) => Math.min(a, b));
-            const remapClosestEdge = parseFloat(remapValue(closestEdge, 0, 20, 0, 1).toFixed(2));
+            const remapClosestEdge = Math.round(remapValue(closestEdge, 0, 20, 0, 1) * 100) / 100;
             if (remapClosestEdge > 1) {
                 circle.alpha += 0.02;
                 if (circle.alpha > circle.targetAlpha) {
@@ -183,34 +185,27 @@ const Particles: React.FC<ParticlesProps> = ({
                 (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) / ease;
             circle.translateY +=
                 (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) / ease;
-            // circle gets out of the canvas
-            if (
+
+            // Check if circle is out of bounds
+            const outOfBounds =
                 circle.x < -circle.size ||
                 circle.x > canvasSize.current.w + circle.size ||
                 circle.y < -circle.size ||
-                circle.y > canvasSize.current.h + circle.size
-            ) {
-                // remove the circle from the array
-                circles.current.splice(circleNumber, 1);
-                // create a new circle
+                circle.y > canvasSize.current.h + circle.size;
+
+            if (outOfBounds) {
+                // Create and draw a new circle to replace the out-of-bounds one
                 const newCircle = circleParams();
                 drawCircle(newCircle);
-                // update the circle position
+                newCircles.push(newCircle);
             } else {
-                // Continue drawing circles
-                drawCircle(
-                    {
-                        ...circle,
-                        x: circle.x,
-                        y: circle.y,
-                        translateX: circle.translateX,
-                        translateY: circle.translateY,
-                        alpha: circle.alpha,
-                    },
-                    true,
-                );
+                // Continue drawing and keep the circle
+                drawCircle(circle, true);
+                newCircles.push(circle);
             }
         });
+
+        circles.current = newCircles;
         window.requestAnimationFrame(animate);
     };
 

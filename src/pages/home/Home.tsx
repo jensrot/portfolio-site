@@ -7,6 +7,14 @@ import { createRandomNumberBetweenTwoValues } from "../../utils/create-random-nu
 import "./home.scss";
 
 export const Home: React.FC = () => {
+
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const user = 'jens.rottiers';
+    const domain = 'outlook.com';
+    window.location.href = `mailto:${user}@${domain}`;
+  };
+
   return (
     <div id="main">
       <div className="card-border">
@@ -48,8 +56,10 @@ export const Home: React.FC = () => {
                   href="https://github.com/jensrott"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Visit my GitHub profile"
+                  title="GitHub"
                 >
-                  <i className="fab fa-github"></i>
+                  <i className="fab fa-github" aria-hidden="true"></i>
                 </a>
               </li>
               <li className="icon">
@@ -57,17 +67,22 @@ export const Home: React.FC = () => {
                   href="https://www.linkedin.com/in/jens-rottiers-44527b1b3"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Visit my LinkedIn profile"
+                  title="LinkedIn"
                 >
-                  <i className="fab fa-linkedin"></i>
+                  <i className="fab fa-linkedin" aria-hidden="true"></i>
                 </a>
               </li>
 
               <li className="icon">
                 <a
-                  href="mailto:jens.rottiers@outlook.com"
+                  href="#"
+                  onClick={handleEmailClick}
                   rel="noopener noreferrer"
+                  aria-label="Send me an email"
+                  title="Email"
                 >
-                  <i className="fas fa-envelope"></i>
+                  <i className="fas fa-envelope" aria-hidden="true"></i>
                 </a>
               </li>
               <li className="icon">
@@ -75,8 +90,10 @@ export const Home: React.FC = () => {
                   href="https://x.com/RottiersJe72450"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Visit my X (Twitter) profile"
+                  title="X (Twitter)"
                 >
-                  <i className="fab fa-x-twitter"></i>
+                  <i className="fab fa-x-twitter" aria-hidden="true"></i>
                 </a>
               </li>
             </ul>
