@@ -1,3 +1,9 @@
+/**
+ * Converts a hex color string to an array of RGB values.
+ *
+ * @param {string} hex - The hex color code (e.g., "#FFFFFF" or "000000").
+ * @returns {number[]} - An array containing the [red, green, blue] components (0-255).
+ */
 export const hexToRgb = (hex: string): number[] => {
     // Remove the "#" character from the beginning of the hex color code
     hex = hex.replace("#", "");

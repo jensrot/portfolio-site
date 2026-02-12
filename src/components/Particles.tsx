@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import useMousePosition from '../utils/mouse-position';
+import useMousePosition from '../hooks/mouse-position';
 import { hexToRgb } from '../utils/hex-to-rgb';
 
 interface ParticlesProps {
