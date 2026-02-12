@@ -53,7 +53,7 @@ export const Home: React.FC = () => {
             <ul className="social-icons">
               <li className="icon">
                 <a
-                  href="https://github.com/jensrott"
+                  href="https://github.com/jensrot"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Visit my GitHub profile"
