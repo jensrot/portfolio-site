@@ -36,6 +36,9 @@ return (
         className="easter-egg-zone"
         onMouseEnter={handleEasterEggEnter}
         onMouseLeave={handleEasterEggLeave}
+        onTouchStart={handleEasterEggEnter}
+        onTouchEnd={handleEasterEggLeave}
+        onTouchMove={handleEasterEggLeave}
         style={{ cursor: isWaiting ? 'progress' : 'default' }}
         aria-hidden="true"
       >
