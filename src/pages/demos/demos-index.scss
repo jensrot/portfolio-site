@@ -16,7 +16,7 @@
         .demos-back-link {
             display: inline-block;
             color: rgba(255, 255, 255, 0.45);
-            font-size: 0.85rem;
+            font-size: $demo-back-link-font-size;
             transition: color 200ms;
             margin-bottom: 1.5rem;
 

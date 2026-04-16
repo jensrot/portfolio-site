@@ -24,7 +24,7 @@
     left: max(1.5rem, calc(50% - 260px));
     z-index: 10;
     color: rgba(255, 255, 255, 0.45);
-    font-size: 0.85rem;
+    font-size: $demo-back-link-font-size;
     transition: color 200ms;
 
     &:hover {
@@ -67,8 +67,15 @@
         border-radius: 0.25rem;
         flex-shrink: 0;
 
-        &.left  { color: hsl(220, 80%, 75%); background: rgba(100, 160, 255, 0.12); }
-        &.right { color: hsl(15,  80%, 70%); background: rgba(255, 120,  80, 0.12); }
+        &.left {
+            color: hsl(220, 80%, 75%);
+            background: rgba(100, 160, 255, 0.12);
+        }
+
+        &.right {
+            color: hsl(15, 80%, 70%);
+            background: rgba(255, 120, 80, 0.12);
+        }
     }
 
     .multilang-info-desc {
