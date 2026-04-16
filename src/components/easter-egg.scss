@@ -1,0 +1,31 @@
+@use '../styles/variables' as *;
+
+.easter-egg-zone {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0.7rem;
+
+  .easter-egg-link {
+    color: $color-bg;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-decoration: none;
+    background: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.3rem;
+    box-shadow: rgba(0, 19, 25, 0.15) 0px 2px 8px;
+    animation: fade-in 0.8s ease-in-out;
+    transition: box-shadow 200ms;
+
+    &:hover {
+      box-shadow: rgba(0, 19, 25, 0.25) 0px 4px 12px;
+    }
+  }
+}

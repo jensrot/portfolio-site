@@ -1,0 +1,44 @@
+@use '../../../styles/variables' as *;
+
+.demo-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: $color-bg;
+    overflow: hidden;
+}
+
+.demo-canvas-wrapper {
+    width: 100%;
+    height: 100%;
+
+    canvas {
+        display: block;
+    }
+}
+
+.demo-back-link {
+    position: absolute;
+    top: 1rem;
+    left: max(1.5rem, calc(50% - 260px));
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.85rem;
+    transition: color 200ms;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.demo-api-label {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 1rem;
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.7rem;
+    font-family: monospace;
+    pointer-events: none;
+}

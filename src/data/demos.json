@@ -1,0 +1,51 @@
+[
+    {
+        "section": "Particle animations powered by @chenglou/pretext (created with the help of AI ❤️)",
+        "link": {
+            "text": "@chenglou/pretext",
+            "url": "https://github.com/chenglou/pretext"
+        },
+        "demos": [
+            {
+                "path": "/demos/word-cloud",
+                "num": "01",
+                "title": "Word Cloud",
+                "api": "measureNaturalWidth",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L689",
+                "desc": "Words of varying sizes float as particles. pretext measures each word's exact pixel width per font size."
+            },
+            {
+                "path": "/demos/flowing-paragraph",
+                "num": "02",
+                "title": "Paragraph Around Obstacles",
+                "api": "layoutNextLine",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L697",
+                "desc": "A paragraph reflows around moving obstacles in real time using variable maxWidth per line."
+            },
+            {
+                "path": "/demos/typewriter-stream",
+                "num": "03",
+                "title": "Typewriter Stream",
+                "api": "measureLineStats + layoutWithLines",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L679",
+                "desc": "Phrases stream in as fitted badges. pretext computes exact dimensions without touching the DOM."
+            },
+            {
+                "path": "/demos/multilang",
+                "num": "04",
+                "title": "Multi-language & Emoji",
+                "api": "prepareWithSegments · segments",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L565",
+                "desc": "Side-by-side: pretext word segments vs naive Array.from(). Multi-codepoint emoji stay intact on the left."
+            },
+            {
+                "path": "/demos/balanced-labels",
+                "num": "05",
+                "title": "Balanced Labels",
+                "api": "measureLineStats binary search",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L679",
+                "desc": "Label cards wrapped to their tightest balanced width via binary search — text-wrap: balance without CSS."
+            }
+        ]
+    }
+]

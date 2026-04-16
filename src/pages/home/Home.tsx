@@ -1,8 +1,10 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-import Particles from "../../components/Particles";
+
 import { createRandomNumberBetweenTwoValues } from "../../utils/create-random-number-between-two-values";
+
+import Particles from "../../components/Particles";
+import EasterEgg from "../../components/EasterEgg";
 
 import "./home.scss";
 
@@ -17,6 +19,7 @@ export const Home: React.FC = () => {
 
   return (
     <div id="main">
+      <EasterEgg />
       <div className="card-border">
         <div id="wrapper" className="card">
           <div className="main-title">

@@ -1,0 +1,130 @@
+@use '../../styles/variables' as *;
+
+#demos-index {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem 4rem;
+    animation: fade-in 0.8s ease-in-out;
+
+    .demos-content {
+        width: 100%;
+        max-width: 80%;
+
+        .demos-back-link {
+            display: inline-block;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.85rem;
+            transition: color 200ms;
+            margin-bottom: 1.5rem;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .demos-subtitle {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+
+            a {
+                color: rgba(255, 255, 255, 0.65);
+                text-decoration: underline;
+                text-underline-offset: 3px;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .demo-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .demo-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        li {
+            list-style: none;
+        }
+
+        .demo-btn {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background 180ms, border-color 180ms, transform 180ms;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateX(4px);
+            }
+
+            .demo-num {
+                font-family: monospace;
+                font-size: 0.7rem;
+                flex-shrink: 0;
+                width: 1.6rem;
+            }
+
+            .demo-btn-title {
+                font-weight: 600;
+                font-size: 0.95rem;
+                flex: 1;
+                min-width: 0;
+            }
+
+            .demo-api {
+                @media (max-width: 480px) {
+                    display: none;
+                }
+
+                font-family: monospace;
+                font-size: 0.65rem;
+                color: #fff;
+                background: $color-bg;
+                padding: 0.15rem 0.5rem;
+                border-radius: 0.25rem;
+                white-space: nowrap;
+                flex-shrink: 0;
+                margin-left: 1.6rem;
+                text-decoration: none;
+
+                &:hover {
+                    background: lighten($color-bg, 10%);
+                    text-decoration: underline;
+                    text-underline-offset: 2px;
+                }
+
+                code {
+                    font-family: inherit;
+                    font-size: inherit;
+                    color: inherit;
+                    background: none;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

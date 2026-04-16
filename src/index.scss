@@ -1,3 +1,5 @@
+@use './styles/variables' as *;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,8 +16,13 @@
   }
 }
 
+html {
+  height: 100%;
+  overflow-x: hidden; // Prevent horizontal scroll
+}
+
 body {
-  background-color: #2a314c;
+  background-color: $color-bg;
   font-size: calc(10px + 0.3vw);
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -23,6 +30,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh; // Dynamic viewport height for mobile
+  min-height: -webkit-fill-available; // iOS Safari fallback
+}
+
+// Ensure #root takes full height ONLY on home page for vertical centering
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
+}
+
+#root:has(#main) {
+  // Otherwise the card in home is not centered vertically
+  height: 100vh;
+  height: 100dvh;
+}
+
+// iOS Safari specific viewport fix
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
 }
 
 a {
@@ -34,8 +67,22 @@ li {
   list-style-type: none;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .particles-animation {
   height: 100vh;
+  height: 100dvh; // Dynamic viewport height for mobile
+  height: -webkit-fill-available; // iOS Safari fallback
   position: absolute;
   z-index: -10;
   top: 0;

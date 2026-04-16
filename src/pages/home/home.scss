@@ -1,7 +1,8 @@
+@use '../../styles/variables' as *;
+
 $margin-bottom-base: 1.8rem;
-$border-radius-card: 0.45rem;
 $transition-duration: 500ms;
-$fade-in-duration: 1.5s;
+
 
 .card {
   box-shadow: rgba(0, 19, 25, 0.2) 0px 1px 2px,
@@ -11,9 +12,10 @@ $fade-in-duration: 1.5s;
   padding: 1.3rem;
   border-radius: $border-radius-card;
   animation: fade-in $fade-in-duration ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
-// Linear gradient
+// Linear gradient background on hover for card
 .card-border {
   transition: background $transition-duration ease-in-out, padding $transition-duration ease-in-out;
 
@@ -28,20 +30,22 @@ $fade-in-duration: 1.5s;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   flex-direction: column;
-  position: absolute;
+  padding: 1.5rem;
 
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  // Mobile safe areas for notched devices
+  @supports (padding: max(0px)) {
+    padding-top: max(1.5rem, env(safe-area-inset-top));
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
 
   #wrapper {
     text-align: left;
     display: flex;
     flex-direction: column;
+    transition: all 300ms ease-in-out;
 
     .main-title {
       h1 {
@@ -59,7 +63,18 @@ $fade-in-duration: 1.5s;
       span {
         a {
           font-weight: bold;
-          color: #2a314c;
+          color: $color-bg;
+          text-decoration: none;
+          background-image: linear-gradient(#ffb300, #ffb300);
+          background-size: 0% 2px;
+          background-repeat: no-repeat;
+          background-position: left bottom;
+          transition: color 250ms ease-out, background-size 250ms ease-out;
+
+          &:hover {
+            color: #ffb300;
+            background-size: 100% 2px;
+          }
         }
       }
 
@@ -108,7 +123,7 @@ $fade-in-duration: 1.5s;
           }
 
           &:hover {
-            background-color: #2a314c;
+            background-color: $color-bg;
             color: #fff;
 
             .button-particles {
@@ -131,10 +146,11 @@ $fade-in-duration: 1.5s;
             padding: 0 1.7rem;
 
             i {
-              transition: transform $transition-duration ease-in-out;
+              transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+              color: $color-bg;
 
               &:hover {
-                transform: scale(1.035);
+                transform: scale(1.1);
               }
             }
           }

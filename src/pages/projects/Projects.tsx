@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import cv from "../../assets/cv_27_07_2020.pdf";
+import cv from "../../assets/cv_16_04_2026.pdf";
 import projectsData from "../../data/projects.json";
 
 import "./projects.scss";
+import EasterEgg from "../../components/EasterEgg";
 
 interface Project {
   github_link: string;
@@ -35,20 +36,23 @@ export const Projects: React.FC = () => {
 
   return (
     <div id="main">
+      <EasterEgg />
       <div className="container">
         <div className="container__start" key={`buttons-${filterKey}`}>
-          <Link className="btn" to="/">
-            <h1>Home</h1>
+          <Link className="btn" to="/" title="Visit home">
+            <h2>Home</h2>
           </Link>
           <a
             className="btn"
             href={cv}
             target="_blank"
             rel="noopener noreferrer"
+            title="See my curriculum vitae"
           >
-            <h1>Curriculum vitae</h1>
+            <h2>Curriculum vitae</h2>
           </a>
         </div>
+        <h1 className="visually-hidden">Projects</h1>
         <div id="projects" className="cards-container">
           {projects?.map((project: Project, index: number) => (
             <div className="card" key={`${filterKey}-${index}`}>
@@ -58,7 +62,7 @@ export const Projects: React.FC = () => {
                     href={project.github_link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Visit the github repository"
+                    title="Visit the Github repository"
                   >
                     <i className="fab fa-github"></i>
                   </a>

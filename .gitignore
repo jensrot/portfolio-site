@@ -29,3 +29,7 @@ push_repo.sh
 
 debug.log
 notes.md
+
+.agents
+skills-lock.json
+.claude
