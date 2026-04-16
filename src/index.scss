@@ -36,6 +36,11 @@ body {
   min-height: 100vh;
   min-height: 100dvh; // Dynamic viewport height for mobile
   min-height: -webkit-fill-available; // iOS Safari fallback
+  scrollbar-width: none; // Firefox
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Edge
+  }
 }
 
 // Ensure #root takes full height ONLY on home page for vertical centering
