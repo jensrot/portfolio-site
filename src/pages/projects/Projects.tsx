@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import cv from "../../assets/cv_16_04_2026.pdf";
 import projectsData from "../../data/projects.json";
 
 import "./projects.scss";
@@ -20,6 +19,8 @@ export const Projects: React.FC = () => {
   const [allProjects, setAllProjects] = useState<Array<Project>>(); // The original list of all projects
   const [projects, setProjects] = useState<Array<Project>>();
   const [filterKey, setFilterKey] = useState<number>(0); // Key to trigger re-animation
+
+  const cv = "/cv_16_04_2026.pdf";
 
   useEffect(() => {
     setAllProjects(projectsData);
