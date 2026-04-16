@@ -15,7 +15,8 @@ const FONT_SIZE = 20;
 const STATICITY = 45;
 const EASE = 48;
 const MOBILE_BREAKPOINT = 600;
-const HIT_AREA = 12; // px either side of the divider line that counts as a hit
+const HIT_AREA_MOUSE = 12; // px either side of the divider line for mouse
+const HIT_AREA_TOUCH = 28; // larger hit area for finger input
 
 type Bounds = { minX: number; maxX: number; minY: number; maxY: number };
 
@@ -104,12 +105,12 @@ const MultilangParticles: React.FC = () => {
         };
     };
 
-    const isNearDivider = (localX: number, localY: number): boolean => {
+    const isNearDivider = (localX: number, localY: number, hitArea: number): boolean => {
         const { w, h } = canvasSize.current;
         if (splitAxis.current === 'horizontal') {
-            return Math.abs(localX - w * dividerPos.current) < HIT_AREA;
+            return Math.abs(localX - w * dividerPos.current) < hitArea;
         }
-        return Math.abs(localY - h * dividerPos.current) < HIT_AREA;
+        return Math.abs(localY - h * dividerPos.current) < hitArea;
     };
 
     const buildParticles = () => {
@@ -261,7 +262,8 @@ const MultilangParticles: React.FC = () => {
 
     const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
         const rect = containerRef.current!.getBoundingClientRect();
-        if (isNearDivider(e.clientX - rect.left, e.clientY - rect.top)) {
+        const hitArea = e.pointerType === 'touch' ? HIT_AREA_TOUCH : HIT_AREA_MOUSE;
+        if (isNearDivider(e.clientX - rect.left, e.clientY - rect.top, hitArea)) {
             isDragging.current = true;
             e.currentTarget.setPointerCapture(e.pointerId);
         }
@@ -271,7 +273,8 @@ const MultilangParticles: React.FC = () => {
         const rect = containerRef.current!.getBoundingClientRect();
         const localX = e.clientX - rect.left;
         const localY = e.clientY - rect.top;
-        const near = isNearDivider(localX, localY);
+        const hitArea = e.pointerType === 'touch' ? HIT_AREA_TOUCH : HIT_AREA_MOUSE;
+        const near = isNearDivider(localX, localY, hitArea);
 
         setCursorStyle(
             isDragging.current || near

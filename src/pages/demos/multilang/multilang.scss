@@ -12,6 +12,7 @@
 .demo-canvas-wrapper {
     width: 100%;
     height: 100%;
+    touch-action: none; // prevent browser scroll/pan from stealing pointer events during drag
 
     canvas {
         display: block;
