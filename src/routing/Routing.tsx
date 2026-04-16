@@ -1,23 +1,23 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import { Home } from "../pages/home/Home";
 import { Projects } from "../pages/projects/Projects";
 
-import DemosIndex from "../pages/demos/DemosIndex";
-import WordCloud from "../pages/demos/word-cloud/WordCloud";
-import FlowingParagraph from "../pages/demos/flowing-paragraph/FlowingParagraph";
-import TypewriterStream from "../pages/demos/typewriter-stream/TypewriterStream";
-import MultilangParticles from "../pages/demos/multilang/MultilangParticles";
-import BalancedLabels from "../pages/demos/balanced-labels/BalancedLabels";
+const DemosIndex        = lazy(() => import("../pages/demos/DemosIndex"));
+const WordCloud         = lazy(() => import("../pages/demos/word-cloud/WordCloud"));
+const FlowingParagraph  = lazy(() => import("../pages/demos/flowing-paragraph/FlowingParagraph"));
+const TypewriterStream  = lazy(() => import("../pages/demos/typewriter-stream/TypewriterStream"));
+const MultilangParticles = lazy(() => import("../pages/demos/multilang/MultilangParticles"));
+const BalancedLabels    = lazy(() => import("../pages/demos/balanced-labels/BalancedLabels"));
 
 const Routing: React.FC = () => {
   return (
-    <React.Fragment>
+    <Suspense fallback={null}>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/projects" component={Projects} />
-        <Route exact path="/demos" component={DemosIndex} />
+<Route exact path="/demos" component={DemosIndex} />
         <Route exact path="/demos/word-cloud" component={WordCloud} />
         <Route exact path="/demos/flowing-paragraph" component={FlowingParagraph} />
         <Route exact path="/demos/typewriter-stream" component={TypewriterStream} />
@@ -25,7 +25,7 @@ const Routing: React.FC = () => {
         <Route exact path="/demos/balanced-labels" component={BalancedLabels} />
         <Redirect from="*" to="/" />
       </Switch>
-    </React.Fragment>
+    </Suspense>
   );
 };
 

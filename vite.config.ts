@@ -8,10 +8,17 @@ export default defineConfig(() => {
         },
         build: {
             outDir: 'build',
+            rollupOptions: {
+                output: {
+                    manualChunks: {
+                        react: ['react', 'react-dom', 'react-router-dom'],
+                        pretext: ['@chenglou/pretext'],
+                    },
+                },
+            },
         },
         plugins: [react({
-            jsxRuntime: 'classic',
-        }),
-        ],
+            jsxRuntime: 'automatic',
+        })],
     };
 });
