@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import { createRandomNumberBetweenTwoValues } from "../../utils/create-random-number-between-two-values";
 
-import Particles from "../../components/Particles";
-import EasterEgg from "../../components/EasterEgg";
+import Particles from "../../components/particles/Particles";
+import EasterEgg from "../../components/easter-egg/EasterEgg";
 
 import "./home.scss";
 

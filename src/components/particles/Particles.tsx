@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import useMousePosition from '../hooks/mouse-position';
-import { hexToRgb } from '../utils/hex-to-rgb';
+import useMousePosition from '../../hooks/mouse-position';
+import { hexToRgb } from '../../utils/hex-to-rgb';
 
 interface ParticlesProps {
     className?: string;

@@ -1,0 +1,23 @@
+.dev-tools {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 9999;
+
+    button {
+        background: rgba(255, 50, 50, 0.85);
+        color: #fff;
+        border: none;
+        border-radius: 0.4rem;
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+            background: rgba(255, 50, 50, 1);
+        }
+    }
+}

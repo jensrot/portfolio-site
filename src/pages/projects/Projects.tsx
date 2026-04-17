@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import projectsData from "../../data/projects.json";
 
-import "./projects.scss";
-import EasterEgg from "../../components/EasterEgg";
+import EasterEgg from "../../components/easter-egg/EasterEgg";
 
+import "./projects.scss";
 interface Project {
   github_link: string;
   live_link: string;

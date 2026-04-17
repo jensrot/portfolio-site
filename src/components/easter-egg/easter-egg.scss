@@ -1,16 +1,17 @@
-@use '../styles/variables' as *;
+@use '../../styles/variables' as *;
 
 .easter-egg-zone {
   position: fixed;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 60px;
+  top: env(safe-area-inset-top, 0px); // account for notch on mobile devices
+  right: env(safe-area-inset-right, 0px); // account for notch on mobile devices
+  width: 100px;
+  height: 100px;
   z-index: 100;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: 0.7rem;
+  padding: 0.8rem;
+  -webkit-tap-highlight-color: transparent; // remove the grey flash on tap
 
   .easter-egg-link {
     color: $color-bg;

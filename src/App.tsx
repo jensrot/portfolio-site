@@ -3,7 +3,8 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Routing from "./routing/Routing";
 
-import Particles from "./components/Particles";
+import Particles from "./components/particles/Particles";
+import DevTools from "./components/dev-tools/DevTools";
 
 import { createRandomNumberBetweenTwoValues } from "./utils/create-random-number-between-two-values";
 
@@ -13,6 +14,7 @@ export const App = () => {
       <BrowserRouter>
         <Particles className="particles-animation" quantity={createRandomNumberBetweenTwoValues(200, 800)} />
         <Routing />
+        {import.meta.env.DEV && <DevTools />}
       </BrowserRouter>
     </React.Fragment>
   );
