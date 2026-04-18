@@ -55,8 +55,8 @@
   position: fixed;
   top: env(safe-area-inset-top, 0px); // account for notch on mobile devices
   right: env(safe-area-inset-right, 0px); // account for notch on mobile devices
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   z-index: 100;
   display: flex;
   align-items: flex-start;
