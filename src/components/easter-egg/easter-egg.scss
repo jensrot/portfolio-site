@@ -1,17 +1,151 @@
 @use '../../styles/variables' as *;
 
+@keyframes easter-egg-glow {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes easter-egg-sparkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  35%,
+  65% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes easter-egg-progress-fill {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes easter-egg-sparkle-delayed {
+
+  0%,
+  25%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(45deg);
+  }
+
+  50%,
+  70% {
+    opacity: 1;
+    transform: scale(1.1) rotate(45deg);
+  }
+}
+
 .easter-egg-zone {
   position: fixed;
   top: env(safe-area-inset-top, 0px); // account for notch on mobile devices
   right: env(safe-area-inset-right, 0px); // account for notch on mobile devices
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   z-index: 100;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
   padding: 0.8rem;
   -webkit-tap-highlight-color: transparent; // remove the grey flash on tap
+  user-select: none;
+  -webkit-user-select: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at top right, rgba(180, 210, 255, 0.7), rgba(140, 180, 255, 0.2) 50%, transparent 75%);
+    animation: easter-egg-glow 4s ease-in-out infinite;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  &.is-waiting::before {
+    opacity: 0;
+    animation: none;
+  }
+
+  &::after {
+    content: '✦';
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 6px rgba(180, 210, 255, 0.9);
+    animation: easter-egg-sparkle 3.5s ease-in-out infinite;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .sparkle-secondary {
+    position: absolute;
+    top: 28px;
+    right: 8px;
+    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 0 5px rgba(180, 210, 255, 0.8);
+    animation: easter-egg-sparkle-delayed 3.5s ease-in-out infinite;
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .easter-egg-progress {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    transform: rotate(-90deg);
+    pointer-events: none;
+
+    &__track {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.15);
+      stroke-width: 2.5;
+    }
+
+    &__fill {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.95);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-dasharray: 100.53;
+      stroke-dashoffset: 100.53;
+      filter: drop-shadow(0 0 4px rgba(180, 210, 255, 0.9));
+      animation: easter-egg-progress-fill 1.5s linear forwards;
+    }
+  }
+
+  &.hint-hidden {
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .sparkle-secondary {
+      display: none;
+    }
+  }
 
   .easter-egg-link {
     color: $color-bg;

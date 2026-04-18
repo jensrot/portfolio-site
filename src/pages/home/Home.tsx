@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { createRandomNumberBetweenTwoValues } from "../../utils/create-random-number-between-two-values";
+import { getRandomNumberBetweenTwoValues } from "../../utils/random-number-between-two-values";
 
 import Particles from "../../components/particles/Particles";
 import EasterEgg from "../../components/easter-egg/EasterEgg";
@@ -45,7 +45,7 @@ export const Home: React.FC = () => {
               <button>
                 <Particles
                   className="button-particles"
-                  quantity={createRandomNumberBetweenTwoValues(30, 70)}
+                  quantity={getRandomNumberBetweenTwoValues(30, 70)}
                   staticity={30}
                 />
                 <span className="button-text">Projects</span>
