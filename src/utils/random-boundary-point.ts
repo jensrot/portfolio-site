@@ -8,12 +8,10 @@ type Box = {
 };
 
 /**
- * Returns a random point along one of the 4 edges of a bounding box,
- * placed inset pixels inside the boundary.
- *
+ * @description Returns a random point along one of the 4 edges of a bounding box, placed inset pixels inside the boundary.
  * @param {Box} box - The bounding box.
- * @param {number} inset - Margin in pixels to keep the point inside each edge.
- * @return {{ x: number; y: number }} - The random point object.
+ * @param {number} [inset=6] - Margin in pixels to keep the point inside each edge.
+ * @returns {{ x: number; y: number }} - The random point object.
  */
 export const getRandomBoundaryPoint = (box: Box, inset = 6): { x: number; y: number } => {
     const edge = Math.floor(Math.random() * 4);

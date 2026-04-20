@@ -1,6 +1,5 @@
 /**
- * Converts a hex color string to an array of RGB values.
- *
+ * @description Converts a hex color string to an array of RGB values.
  * @param {string} hex - The hex color code (e.g., "#FFFFFF" or "000000").
  * @returns {number[]} - An array containing the [red, green, blue] components (0-255).
  */
