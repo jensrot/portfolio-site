@@ -2,7 +2,7 @@
     {
         "github_link": "https://github.com/jensrot/meeting-minutes-send-summary-to-confluence",
         "live_link": "https://github.com/jensrot/meeting-minutes-send-summary-to-confluence",
-        "title": "Meeting summary sender",
+        "title": "Meeting Summary Sender",
         "description": [
             "I created a Python script that automatically sends a summary of a meeting using ",
             {
@@ -25,7 +25,7 @@
     {
         "github_link": "https://github.com/jensrott/bachelorproef-demonstrator-site",
         "live_link": "https://eloquent-clarke-888930.netlify.app/",
-        "title": "Bachelor thesis",
+        "title": "Bachelor Thesis",
         "description": [
             "For my bachelor thesis I created a domotica demonstrator tool for young families. I did this in collaboration with ",
             {
