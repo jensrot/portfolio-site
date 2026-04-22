@@ -45,7 +45,7 @@ const EasterEgg: React.FC = () => {
       onTouchStart={() => !demosRevealed && setIsWaiting(true)}
       onTouchMove={cancel}
       style={{ cursor: isWaiting ? 'progress' : 'default' }}
-      aria-hidden="true"
+      aria-hidden={demosRevealed ? undefined : true}
     >
       {!demosRevealed && <span className="sparkle-secondary">✦</span>}
       {isWaiting && (

@@ -94,6 +94,16 @@ $margin-bottom-base: 1rem;
           width: 70%;
           line-height: 1.7;
           margin-bottom: 2rem;
+
+          a {
+            color: $color-bg;
+            font-weight: bold;
+            transition: color 250ms ease-out;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
 
         &__technologies-container {

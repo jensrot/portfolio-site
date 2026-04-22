@@ -5,12 +5,15 @@ import projectsData from "../../data/projects.json";
 
 import EasterEgg from "../../components/easter-egg/EasterEgg";
 
+import { DescriptionPart, renderDescriptionWithInternalLinks } from "../../utils/render-description-with-links";
+
 import "./projects.scss";
+
 interface Project {
   github_link: string;
   live_link: string;
   title: string;
-  description: string;
+  description: DescriptionPart[];
   technologies: string[];
 }
 
@@ -20,14 +23,14 @@ export const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Array<Project>>();
   const [filterKey, setFilterKey] = useState<number>(0); // Key to trigger re-animation
 
-  const cv = "/cv_16_04_2026.pdf";
+  const latestCurriculumVitae = "/cv_16_04_2026.pdf";
 
   useEffect(() => {
     setAllProjects(projectsData);
     setProjects(projectsData);
   }, [])
 
-  const filterProjects = (tag: string) => {
+  const filterProjects = (tag: string): void => {
     if (tag && allProjects) {
       const filteredProjectsBasedOnTag = allProjects.filter(project => project.technologies.includes(tag));
       setProjects(filteredProjectsBasedOnTag);
@@ -45,7 +48,7 @@ export const Projects: React.FC = () => {
           </Link>
           <a
             className="btn"
-            href={cv}
+            href={latestCurriculumVitae}
             target="_blank"
             rel="noopener noreferrer"
             title="See my curriculum vitae"
@@ -80,9 +83,7 @@ export const Projects: React.FC = () => {
                 </li>
               </div>
               <h1 className="card__title">{project.title}</h1>
-              <p className="card__text">
-                {project.description}
-              </p>
+              <p className="card__text">{renderDescriptionWithInternalLinks(project.description)}</p>
               <div className="card__technologies-container">
                 {project.technologies?.map((technology, index) => (
                   <button

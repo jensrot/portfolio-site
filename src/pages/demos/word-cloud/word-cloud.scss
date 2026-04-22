@@ -20,8 +20,8 @@
 
 .demo-back-link {
     position: absolute;
-    top: 1rem;
-    left: max(1.5rem, calc(50% - 260px));
+    top: calc(2rem + 2vw);
+    left: max(1.5rem, 10%);
     z-index: 10;
     color: rgba(255, 255, 255, 0.45);
     font-size: 0.95rem;

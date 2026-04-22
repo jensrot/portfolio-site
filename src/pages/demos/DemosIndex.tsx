@@ -27,20 +27,21 @@ const DemosIndex: React.FC = () => {
                             <ul className="demo-list">
                                 {section.demos.map(demo => (
                                     <li key={demo.path}>
-                                        <Link to={demo.path} className="demo-btn">
+                                        <div className="demo-btn">
                                             <span className="demo-num">{demo.num}</span>
-                                            <span className="demo-btn-title">{demo.title}</span>
+                                            <span className="demo-btn-title">
+                                                <Link to={demo.path} className="demo-btn-link">{demo.title}</Link>
+                                            </span>
                                             {demo.api && (
                                                 demo.apiUrl
                                                     ? <a href={demo.apiUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="demo-api"
-                                                        onClick={e => e.stopPropagation()}
                                                         title={demo.desc}><code>{demo.api}</code></a>
                                                     : <code className="demo-api">{demo.api}</code>
                                             )}
-                                        </Link>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>
