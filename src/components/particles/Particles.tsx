@@ -46,6 +46,7 @@ const Particles: React.FC<ParticlesProps> = ({
     const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
     const animationFrameId = useRef<number>(0);
+    const isAnimating = useRef<boolean>(false);
 
     useEffect(() => {
         if (canvasRef.current) {
@@ -55,21 +56,25 @@ const Particles: React.FC<ParticlesProps> = ({
         animate();
         window.addEventListener("resize", initCanvas);
 
-        const restartAnimate = () => {
-            cancelAnimationFrame(animationFrameId.current);
-            animate();
-        };
         const handleVisibilityChange = () => {
-            if (document.visibilityState === "visible") restartAnimate();
+            if (document.visibilityState === "visible" && !isAnimating.current) {
+                animate();
+            }
+        };
+        const handlePageShow = () => {
+            if (!isAnimating.current) {
+                animate();
+            }
         };
         document.addEventListener("visibilitychange", handleVisibilityChange);
-        window.addEventListener("pageshow", restartAnimate);
+        window.addEventListener("pageshow", handlePageShow);
 
         return () => {
             window.removeEventListener("resize", initCanvas);
             document.removeEventListener("visibilitychange", handleVisibilityChange);
-            window.removeEventListener("pageshow", restartAnimate);
+            window.removeEventListener("pageshow", handlePageShow);
             cancelAnimationFrame(animationFrameId.current);
+            isAnimating.current = false;
         };
     }, []);
 
@@ -172,6 +177,7 @@ const Particles: React.FC<ParticlesProps> = ({
     };
 
     const animate = () => {
+        isAnimating.current = true;
         clearContext();
         const newCircles: Circle[] = [];
 
