@@ -20,6 +20,7 @@
     "e2e-test:headless": "playwright test",
     "e2e-test:headed": "playwright test --headed",
     "e2e-test:ui": "playwright test --ui",
+    "test:all": "npm run e2e-test:headless && npm run e2e-test:headed",
     "deploy:master": "git checkout master && git merge test && git push origin master && open-cli https://jensrot.netlify.app",
     "deploy:test": "git checkout test && git merge master && git push origin test && git checkout master && open-cli https://test--jensrot.netlify.app",
     "deploy:all": "git checkout master && git push origin master && git push origin master:test && open-cli https://jensrot.netlify.app && open-cli https://test--jensrot.netlify.app"
