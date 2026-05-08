@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { BrowserRouter } from "react-router-dom";
 import Routing from "./routing/Routing";
@@ -9,10 +9,6 @@ import DevTools from "./components/dev-tools/DevTools";
 import { getRandomNumberBetweenTwoValues } from "./utils/random-number-between-two-values";
 
 export const App = () => {
-  useEffect(() => {
-    import("eruda").then(({ default: eruda }) => eruda.init());
-  }, []);
-
   return (
     <React.Fragment>
       <BrowserRouter>
