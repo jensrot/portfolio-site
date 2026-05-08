@@ -715,6 +715,11 @@ electron-to-chromium@^1.4.284:
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.367.tgz"
   integrity sha512-mNuDxb+HpLhPGUKrg0hSxbTjHWw8EziwkwlJNkFUj3W60ypigLDRVz04vU+VRsJPi8Gub+FDhYUpuTm9xiEwRQ==
 
+eruda@^3.4.3:
+  version "3.4.3"
+  resolved "https://registry.npmjs.org/eruda/-/eruda-3.4.3.tgz"
+  integrity sha512-J2TsF4dXSspOXev5bJ6mljv0dRrxj21wklrDzbvPmYaEmVoC+2psylyRi70nUPFh1mTQfIBsSusUtAMZtUN+/w==
+
 esbuild@^0.17.5:
   version "0.17.17"
   resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.17.17.tgz"
