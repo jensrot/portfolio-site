@@ -46,25 +46,35 @@ const Particles: React.FC<ParticlesProps> = ({
     const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
     const frameCount = useRef(0);
+    const rafId = useRef<number | null>(null); // Track the animation frame ID
 
     useEffect(() => {
         if (canvasRef.current) {
             context.current = canvasRef.current.getContext("2d");
         }
         initCanvas();
-        animate();
+
+        // The Animation Loop
+        const render = () => {
+            animate();
+            rafId.current = window.requestAnimationFrame(render);
+        };
+        rafId.current = window.requestAnimationFrame(render);
 
         let resizeTimer: ReturnType<typeof setTimeout>;
         const handleResize = () => {
-            console.log('[resize event] window:', window.innerWidth, 'x', window.innerHeight, '| container:', canvasContainerRef.current?.offsetWidth, 'x', canvasContainerRef.current?.offsetHeight);
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(initCanvas, 200);
         };
         window.addEventListener("resize", handleResize);
 
         return () => {
+            // CLEANUP: This prevents the 'removeChild' error
             window.removeEventListener("resize", handleResize);
             clearTimeout(resizeTimer);
+            if (rafId.current) {
+                window.cancelAnimationFrame(rafId.current);
+            }
         };
     }, []);
 
@@ -130,7 +140,8 @@ const Particles: React.FC<ParticlesProps> = ({
     const rgb = hexToRgb(color);
 
     const drawCircle = (circle: Circle, update = false) => {
-        if (context.current) {
+        // Guard clause: ensure context still exists
+        if (context.current && canvasRef.current) {
             const { x, y, translateX, translateY, size, alpha } = circle;
             context.current.translate(translateX, translateY);
             context.current.beginPath();
@@ -172,6 +183,9 @@ const Particles: React.FC<ParticlesProps> = ({
     };
 
     const animate = () => {
+        // Guard clause: If canvas is gone, stop logic execution
+        if (!canvasRef.current || !context.current) return;
+
         frameCount.current++;
         if (frameCount.current % 120 === 0) {
             console.log('[animate] alive | circles:', circles.current.length, '| w:', canvasSize.current.w, '| h:', canvasSize.current.h, '| ctx:', !!context.current);
@@ -227,7 +241,7 @@ const Particles: React.FC<ParticlesProps> = ({
         });
 
         circles.current = newCircles;
-        window.requestAnimationFrame(animate);
+        // window.requestAnimationFrame(animate); // REMOVED: Managed by useEffect loop now
     };
 
     return (
