@@ -3,8 +3,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 
 import { Home } from "../pages/home/Home";
 import { Projects } from "../pages/projects/Projects";
-
-const DemosIndex = lazy(() => import("../pages/demos/DemosIndex"));
+import DemosIndex from "../pages/demos/DemosIndex";
 const WordCloud = lazy(() => import("../pages/demos/word-cloud/WordCloud"));
 const FlowingParagraph = lazy(() => import("../pages/demos/flowing-paragraph/FlowingParagraph"));
 const TypewriterStream = lazy(() => import("../pages/demos/typewriter-stream/TypewriterStream"));
