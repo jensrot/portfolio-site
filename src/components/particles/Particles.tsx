@@ -52,10 +52,17 @@ const Particles: React.FC<ParticlesProps> = ({
         }
         initCanvas();
         animate();
-        window.addEventListener("resize", initCanvas);
+
+        let resizeTimer: ReturnType<typeof setTimeout>;
+        const handleResize = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(initCanvas, 200);
+        };
+        window.addEventListener("resize", handleResize);
 
         return () => {
-            window.removeEventListener("resize", initCanvas);
+            window.removeEventListener("resize", handleResize);
+            clearTimeout(resizeTimer);
         };
     }, []);
 
