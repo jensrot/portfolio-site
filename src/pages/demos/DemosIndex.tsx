@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import demosData from "../../data/demos.json";
 
@@ -7,12 +7,12 @@ import './demos-index.scss';
 
 const DemosIndex: React.FC = () => {
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     return (
         <div id="demos-index">
             <div className="demos-content">
-                <a href='#' onClick={e => { e.preventDefault(); history.goBack(); }} className="demos-back-link">&#8592; Back</a>
+                <a href='#' onClick={e => { e.preventDefault(); navigate(-1); }} className="demos-back-link">&#8592; Back</a>
                 <h1>Demos (experiments)</h1>
                 {demosData.map(section => {
                     const link = section.link;

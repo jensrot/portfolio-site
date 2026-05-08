@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     prepareWithSegments,
     measureNaturalWidth,
@@ -86,7 +86,7 @@ function remapValue(v: number, s1: number, e1: number, s2: number, e2: number): 
 }
 
 const BalancedLabels: React.FC = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
@@ -196,7 +196,7 @@ const BalancedLabels: React.FC = () => {
 
     return (
         <div className="demo-page" id="balanced-labels-page">
-            <a className="demo-back-link" href="#" onClick={e => { e.preventDefault(); history.goBack(); }}>&#8592; Demos</a>
+            <a className="demo-back-link" href="#" onClick={e => { e.preventDefault(); navigate(-1); }}>&#8592; Demos</a>
             <div className="demo-canvas-wrapper" ref={containerRef} aria-hidden="true">
                 <canvas ref={canvasRef} />
             </div>

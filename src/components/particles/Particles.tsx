@@ -45,8 +45,6 @@ const Particles: React.FC<ParticlesProps> = ({
     const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
     const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
-    const frameCount = useRef(0);
-
     useEffect(() => {
         if (canvasRef.current) {
             context.current = canvasRef.current.getContext("2d");
@@ -56,7 +54,6 @@ const Particles: React.FC<ParticlesProps> = ({
 
         let resizeTimer: ReturnType<typeof setTimeout>;
         const handleResize = () => {
-            console.log('[resize event] window:', window.innerWidth, 'x', window.innerHeight, '| container:', canvasContainerRef.current?.offsetWidth, 'x', canvasContainerRef.current?.offsetHeight);
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(initCanvas, 200);
         };
@@ -91,10 +88,8 @@ const Particles: React.FC<ParticlesProps> = ({
     };
 
     const initCanvas = () => {
-        console.log('[initCanvas] called | url:', window.location.pathname);
         resizeCanvas();
         drawParticles();
-        console.log('[initCanvas] done | circles:', circles.current.length, '| w:', canvasSize.current.w, '| h:', canvasSize.current.h);
     }
 
     const resizeCanvas = () => {
@@ -102,14 +97,11 @@ const Particles: React.FC<ParticlesProps> = ({
             circles.current.length = 0;
             canvasSize.current.w = window.innerWidth;
             canvasSize.current.h = window.innerHeight;
-            console.log('[resizeCanvas] using window:', canvasSize.current.w, 'x', canvasSize.current.h, '| container was:', canvasContainerRef.current.offsetWidth, 'x', canvasContainerRef.current.offsetHeight, '| ctx:', !!context.current);
             canvasRef.current.width = canvasSize.current.w * dpr;
             canvasRef.current.height = canvasSize.current.h * dpr;
             canvasRef.current.style.width = `${canvasSize.current.w}px`;
             canvasRef.current.style.height = `${canvasSize.current.h}px`;
             context.current.scale(dpr, dpr);
-        } else {
-            console.warn('[resizeCanvas] skipped | container:', !!canvasContainerRef.current, '| canvas:', !!canvasRef.current, '| ctx:', !!context.current);
         }
     };
 
@@ -172,13 +164,6 @@ const Particles: React.FC<ParticlesProps> = ({
     };
 
     const animate = () => {
-        frameCount.current++;
-        if (frameCount.current % 120 === 0) {
-            console.log('[animate] alive | circles:', circles.current.length, '| w:', canvasSize.current.w, '| h:', canvasSize.current.h, '| ctx:', !!context.current);
-        }
-        if (circles.current.length === 0 && frameCount.current > 10) {
-            console.warn('[animate] circles empty | w:', canvasSize.current.w, '| h:', canvasSize.current.h, '| ctx:', !!context.current);
-        }
         clearContext();
         const newCircles: Circle[] = [];
 
