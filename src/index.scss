@@ -85,9 +85,6 @@ li {
 }
 
 .particles-animation {
-  height: 100vh;
-  height: 100dvh; // Dynamic viewport height for mobile
-  height: -webkit-fill-available; // iOS Safari fallback
   position: absolute;
   z-index: -10;
   top: 0;
