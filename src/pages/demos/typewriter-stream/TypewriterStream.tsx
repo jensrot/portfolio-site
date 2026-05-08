@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     prepareWithSegments,
     measureNaturalWidth,
@@ -74,7 +74,7 @@ function spawnBadge(canvasSize: { w: number; h: number }, phraseIndex: number): 
 }
 
 const TypewriterStream: React.FC = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
@@ -167,7 +167,7 @@ const TypewriterStream: React.FC = () => {
 
     return (
         <div className="demo-page" id="typewriter-stream-page">
-            <a className="demo-back-link" href="#" onClick={e => { e.preventDefault(); history.goBack(); }}>&#8592; Demos</a>
+            <a className="demo-back-link" href="#" onClick={e => { e.preventDefault(); navigate(-1); }}>&#8592; Demos</a>
             <div className="demo-canvas-wrapper" ref={containerRef} aria-hidden="true">
                 <canvas ref={canvasRef} />
             </div>

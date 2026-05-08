@@ -45,17 +45,23 @@ const Particles: React.FC<ParticlesProps> = ({
     const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
     const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
-
     useEffect(() => {
         if (canvasRef.current) {
             context.current = canvasRef.current.getContext("2d");
         }
         initCanvas();
         animate();
-        window.addEventListener("resize", initCanvas);
+
+        let resizeTimer: ReturnType<typeof setTimeout>;
+        const handleResize = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(initCanvas, 200);
+        };
+        window.addEventListener("resize", handleResize);
 
         return () => {
-            window.removeEventListener("resize", initCanvas);
+            window.removeEventListener("resize", handleResize);
+            clearTimeout(resizeTimer);
         };
     }, []);
 
@@ -89,8 +95,8 @@ const Particles: React.FC<ParticlesProps> = ({
     const resizeCanvas = () => {
         if (canvasContainerRef.current && canvasRef.current && context.current) {
             circles.current.length = 0;
-            canvasSize.current.w = canvasContainerRef.current.offsetWidth;
-            canvasSize.current.h = canvasContainerRef.current.offsetHeight;
+            canvasSize.current.w = window.innerWidth;
+            canvasSize.current.h = window.innerHeight;
             canvasRef.current.width = canvasSize.current.w * dpr;
             canvasRef.current.height = canvasSize.current.h * dpr;
             canvasRef.current.style.width = `${canvasSize.current.w}px`;
