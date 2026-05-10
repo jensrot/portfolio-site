@@ -33,13 +33,27 @@ const DemosIndex: React.FC = () => {
                                                 <Link to={demo.path} className="demo-btn-link">{demo.title}</Link>
                                             </span>
                                             {demo.api && (
-                                                demo.apiUrl
-                                                    ? <a href={demo.apiUrl}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="demo-api"
-                                                        title={demo.desc}><code>{demo.api}</code></a>
-                                                    : <code className="demo-api">{demo.api}</code>
+                                                // If an array of URLs is provided, split the API string and link each part separately. 
+                                                // Otherwise, link the whole API string or just display it as text.
+                                                Array.isArray(demo.apiUrl)
+                                                    ? <span className="demo-api">
+                                                        {demo.api.split(' + ').map((part, i) => (
+                                                            <React.Fragment key={i}>
+                                                                {i > 0 && ' + '}
+                                                                <a href={(demo.apiUrl as string[])[i]}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    title={demo.desc}><code>{part}</code></a>
+                                                            </React.Fragment>
+                                                        ))}
+                                                    </span>
+                                                    : demo.apiUrl
+                                                        ? <a href={demo.apiUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="demo-api"
+                                                            title={demo.desc}><code>{demo.api}</code></a>
+                                                        : <code className="demo-api">{demo.api}</code>
                                             )}
                                         </div>
                                     </li>
