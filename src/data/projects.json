@@ -1,5 +1,19 @@
 [
     {
+        "github_link": "https://github.com/jensrot/word-bank",
+        "live_link": "https://github.com/jensrot/word-bank",
+        "title": "Word Bank",
+        "description": [
+            "I created a native mobile app which allows to add a book you are currently reading and add words you find interesting or difficult in that book. It shows you the explanation of each word using a dictionary. The app is still in development and not live yet."
+        ],
+        "technologies": [
+            "React Native",
+            "Typescript",
+            "Expo",
+            "AsyncStorage"
+        ]
+    },
+    {
         "github_link": "https://github.com/jensrot/meeting-minutes-send-summary-to-confluence",
         "live_link": "https://github.com/jensrot/meeting-minutes-send-summary-to-confluence",
         "title": "Meeting Summary Sender",
