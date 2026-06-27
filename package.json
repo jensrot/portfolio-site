@@ -13,7 +13,7 @@
     "sass": "^1.62.0"
   },
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
     "manual-test-mobile": "npm run start -- --host",
