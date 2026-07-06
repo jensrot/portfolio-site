@@ -1,0 +1,17 @@
+# ~/.cloudflared/config.yml on the Raspberry Pi.
+# Replace <TUNNEL_ID> and the hostnames with your own.
+tunnel: <TUNNEL_ID>
+credentials-file: /home/pi/.cloudflared/<TUNNEL_ID>.json
+
+ingress:
+  # Ingest endpoint your site beacons to (VITE_ANALYTICS_URL = https://collect.yourdomain.com/c)
+  - hostname: collect.yourdomain.com
+    service: http://localhost:8787
+
+  # Read-only Datasette dashboard. Protect this hostname with Cloudflare Access
+  # (Zero Trust > Access > Applications) so only your email can open it.
+  - hostname: stats.yourdomain.com
+    service: http://localhost:8001
+
+  # Required catch-all.
+  - service: http_status:404

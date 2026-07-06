@@ -1,0 +1,23 @@
+[Unit]
+Description=Portfolio journey collector
+After=network.target
+
+[Service]
+Type=simple
+# Adjust user and path to wherever you cloned this on the Pi.
+User=pi
+WorkingDirectory=/home/pi/pi-analytics
+Environment=PORT=8787
+Environment=DB_PATH=/home/pi/pi-analytics/analytics.db
+# Comma-separated list of allowed site origins (no trailing slash).
+Environment=ALLOWED_ORIGINS=https://yourdomain.com,https://your-site.netlify.app
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=3
+# Basic hardening
+NoNewPrivileges=true
+ProtectSystem=full
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

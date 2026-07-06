@@ -1,0 +1,5 @@
+node_modules/
+analytics.db
+analytics.db-shm
+analytics.db-wal
+*.log
