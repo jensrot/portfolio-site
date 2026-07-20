@@ -11,7 +11,7 @@
                 "num": "01",
                 "title": "Word Cloud",
                 "api": "measureNaturalWidth",
-                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L772",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L797",
                 "desc": "Words of varying sizes float as particles. pretext measures each word's exact pixel width per font size."
             },
             {
@@ -19,7 +19,7 @@
                 "num": "02",
                 "title": "Paragraph Around Obstacles",
                 "api": "layoutNextLine",
-                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L780",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L805",
                 "desc": "A paragraph reflows around moving obstacles in real time using variable maxWidth per line."
             },
             {
@@ -28,8 +28,8 @@
                 "title": "Typewriter Stream",
                 "api": "measureLineStats + layoutWithLines",
                 "apiUrl": [
-                    "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L762",
-                    "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L840"
+                    "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L787",
+                    "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L865"
                 ],
                 "desc": "Phrases stream in as fitted badges. pretext computes exact dimensions without touching the DOM."
             },
@@ -38,7 +38,7 @@
                 "num": "04",
                 "title": "Multi-language & Emoji",
                 "api": "prepareWithSegments · segments",
-                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L648",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L673",
                 "desc": "Side-by-side: pretext word segments vs naive Array.from(). Multi-codepoint emoji stay intact on the left."
             },
             {
@@ -46,7 +46,7 @@
                 "num": "05",
                 "title": "Balanced Labels",
                 "api": "measureLineStats binary search",
-                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L762",
+                "apiUrl": "https://github.com/chenglou/pretext/blob/main/src/layout.ts#L787",
                 "desc": "Label cards wrapped to their tightest balanced width via binary search — text-wrap: balance without CSS."
             }
         ]
