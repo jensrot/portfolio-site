@@ -16,6 +16,9 @@
 # Proxy PostHog through our own domain so ad blockers don't drop the requests.
 # These must stay above the SPA catch-all below: Netlify matches redirects in
 # order, so a later /* rule would serve index.html for every /rt/* request.
+#
+# Do not re-add public/_redirects. Netlify processes that file BEFORE this one, so
+# its /* catch-all swallowed every /rt/* request before these rules were consulted.
 [[redirects]]
   from = "/rt/static/*"
   to = "https://eu-assets.i.posthog.com/static/:splat"
