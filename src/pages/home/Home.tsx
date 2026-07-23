@@ -6,12 +6,15 @@ import { getRandomNumberBetweenTwoValues } from "../../utils/random-number-betwe
 import Particles from "../../components/particles/Particles";
 import EasterEgg from "../../components/easter-egg/EasterEgg";
 
+import { track } from "../../analytics/events";
+
 import "./home.scss";
 
 export const Home: React.FC = () => {
 
   const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    track('email_clicked');
     const user = 'jens.rottiers';
     const domain = 'outlook.com';
     window.location.href = `mailto:${user}@${domain}`;
@@ -33,6 +36,7 @@ export const Home: React.FC = () => {
                   href="https://www.arteveldehogeschool.be/nl/opleidingen/bachelor/interactive-media-development"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('outbound_link_clicked', { label: 'school' })}
                 >
                   New Media Development 2019
                 </a>
@@ -61,6 +65,7 @@ export const Home: React.FC = () => {
                   rel="noopener noreferrer"
                   aria-label="Visit my GitHub profile"
                   title="GitHub"
+                  onClick={() => track('outbound_link_clicked', { label: 'github' })}
                 >
                   <i className="fab fa-github" aria-hidden="true"></i>
                 </a>
@@ -72,6 +77,7 @@ export const Home: React.FC = () => {
                   rel="noopener noreferrer"
                   aria-label="Visit my LinkedIn profile"
                   title="LinkedIn"
+                  onClick={() => track('outbound_link_clicked', { label: 'linkedin' })}
                 >
                   <i className="fab fa-linkedin" aria-hidden="true"></i>
                 </a>
@@ -95,6 +101,7 @@ export const Home: React.FC = () => {
                   rel="noopener noreferrer"
                   aria-label="Visit my X (Twitter) profile"
                   title="X (Twitter)"
+                  onClick={() => track('outbound_link_clicked', { label: 'x' })}
                 >
                   <i className="fab fa-x-twitter" aria-hidden="true"></i>
                 </a>

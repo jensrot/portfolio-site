@@ -7,6 +7,8 @@ import EasterEgg from "../../components/easter-egg/EasterEgg";
 
 import { DescriptionPart, renderDescriptionWithInternalLinks } from "../../utils/render-description-with-links";
 
+import { track } from "../../analytics/events";
+
 import "./projects.scss";
 
 interface Project {
@@ -32,6 +34,7 @@ export const Projects: React.FC = () => {
 
   const filterProjects = (tag: string): void => {
     if (tag && allProjects) {
+      track('project_filter_used', { technology: tag });
       const filteredProjectsBasedOnTag = allProjects.filter(project => project.technologies.includes(tag));
       setProjects(filteredProjectsBasedOnTag);
       setFilterKey(prev => prev + 1); // Increment key to trigger re-animation
@@ -52,6 +55,7 @@ export const Projects: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             title="See my curriculum vitae"
+            onClick={() => track('cv_downloaded', { file: latestCurriculumVitae })}
           >
             <h2>Curriculum vitae</h2>
           </a>
@@ -67,6 +71,7 @@ export const Projects: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Visit the Github repository"
+                    onClick={() => track('outbound_link_clicked', { label: 'project_github', url: project.github_link, project: project.title })}
                   >
                     <i className="fab fa-github"></i>
                   </a>
@@ -77,6 +82,7 @@ export const Projects: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Visit the live version"
+                    onClick={() => track('outbound_link_clicked', { label: 'project_live', url: project.live_link, project: project.title })}
                   >
                     <i className="fas fa-external-link-alt"></i>
                   </a>

@@ -6,6 +6,37 @@
   # Directory that contains the deploy-ready HTML files and assets
   publish = "build"
 
+# Tag events with the deploy that produced them, so test-branch traffic is filterable
+[context.production.environment]
+  VITE_DEPLOY_CONTEXT = "production"
+
+[context.branch-deploy.environment]
+  VITE_DEPLOY_CONTEXT = "test"
+
+# Proxy PostHog through our own domain so ad blockers don't drop the requests.
+# These must stay above the SPA catch-all below: Netlify matches redirects in
+# order, so a later /* rule would serve index.html for every /rt/* request.
+[[redirects]]
+  from = "/rt/static/*"
+  to = "https://eu-assets.i.posthog.com/static/:splat"
+  host = "eu-assets.i.posthog.com"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/rt/array/*"
+  to = "https://eu-assets.i.posthog.com/array/:splat"
+  host = "eu-assets.i.posthog.com"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/rt/*"
+  to = "https://eu.i.posthog.com/:splat"
+  host = "eu.i.posthog.com"
+  status = 200
+  force = true
+
 # Redirect all requests to index.html for SPA routing
 [[redirects]]
   from = "/*"

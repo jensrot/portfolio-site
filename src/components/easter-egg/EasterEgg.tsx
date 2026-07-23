@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { track } from "../../analytics/events";
+
 import "./easter-egg.scss";
 
 const waitTime = 1500;
@@ -12,6 +14,7 @@ const EasterEgg: React.FC = () => {
 
   const reveal = () => {
     localStorage.setItem('easter_egg_found', 'true');
+    track('easter_egg_found');
     setDemosRevealed(true);
     setIsWaiting(false);
   };

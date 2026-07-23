@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import demosData from "../../data/demos.json";
 
+import { track } from "../../analytics/events";
+
 import './demos-index.scss';
 
 const DemosIndex: React.FC = () => {
@@ -21,7 +23,10 @@ const DemosIndex: React.FC = () => {
                         <div key={section.section} className="demo-section">
                             <p className="demos-subtitle">
                                 {parts[0]}
-                                {link && <a href={link.url} target="_blank" rel="noopener noreferrer">{link.text}</a>}
+                                {link && <a href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => track('section_link_clicked', { url: link.url })}>{link.text}</a>}
                                 {parts[1]}
                             </p>
                             <ul className="demo-list">
@@ -30,7 +35,9 @@ const DemosIndex: React.FC = () => {
                                         <div className="demo-btn">
                                             <span className="demo-num">{demo.num}</span>
                                             <span className="demo-btn-title">
-                                                <Link to={demo.path} className="demo-btn-link">{demo.title}</Link>
+                                                <Link to={demo.path}
+                                                    className="demo-btn-link"
+                                                    onClick={() => track('demo_opened', { demo: demo.title, path: demo.path, num: demo.num })}>{demo.title}</Link>
                                             </span>
                                             {demo.api && (
                                                 // If an array of URLs is provided, split the API string and link each part separately. 
@@ -43,7 +50,8 @@ const DemosIndex: React.FC = () => {
                                                                 <a href={(demo.apiUrl as string[])[i]}
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
-                                                                    title={demo.desc}><code>{part}</code></a>
+                                                                    title={demo.desc}
+                                                                    onClick={() => track('demo_api_link_clicked', { demo: demo.title, api: part, url: (demo.apiUrl as string[])[i] })}><code>{part}</code></a>
                                                             </React.Fragment>
                                                         ))}
                                                     </span>
@@ -52,7 +60,8 @@ const DemosIndex: React.FC = () => {
                                                             target="_blank"
                                                             rel="noopener noreferrer"
                                                             className="demo-api"
-                                                            title={demo.desc}><code>{demo.api}</code></a>
+                                                            title={demo.desc}
+                                                            onClick={() => track('demo_api_link_clicked', { demo: demo.title, api: demo.api, url: demo.apiUrl })}><code>{demo.api}</code></a>
                                                         : <code className="demo-api">{demo.api}</code>
                                             )}
                                         </div>

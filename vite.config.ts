@@ -13,6 +13,7 @@ export default defineConfig(() => {
                     manualChunks: {
                         react: ['react', 'react-dom', 'react-router-dom'],
                         pretext: ['@chenglou/pretext'],
+                        posthog: ['posthog-js'],
                     },
                 },
             },
