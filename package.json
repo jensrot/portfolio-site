@@ -17,6 +17,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "og": "node scripts/generate-og.mjs",
     "manual-test-mobile": "npm run start -- --host",
     "e2e-test:headless": "playwright test",
     "e2e-test:headed": "playwright test --headed",

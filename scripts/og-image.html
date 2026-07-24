@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+  Source template for the Open Graph / social share image (public/og-image.png).
+
+  Edit this file, then run `npm run og` to regenerate the PNG.
+  To preview while editing, open this file directly in a browser at ~1200x630 —
+  the body is fixed to those dimensions, which is what the screenshot captures.
+
+  Colours mirror the live site so the card stays on-brand:
+    #2a314c            -> $color-bg in src/styles/_variables.scss
+    #434e76 -> #ffb300 -> the .card-border hover gradient in src/pages/home/home.scss
+
+  Constraints worth keeping: 1200x630 is the standard 1.91:1 OG ratio, and the
+  card renders as small as ~360px wide in a Slack sidebar, so keep type large.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 1200px;
+      height: 630px;
+    }
+
+    body {
+      background-color: #2a314c;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-border {
+      background: linear-gradient(to right, #434e76, #ffb300);
+      padding: 6px;
+      border-radius: 18px;
+      box-shadow: rgba(0, 19, 25, 0.35) 0px 12px 48px;
+    }
+
+    .card {
+      background-color: #fff;
+      color: #000;
+      border-radius: 14px;
+      padding: 92px 80px;
+      width: 940px;
+    }
+
+    h1 {
+      font-size: 96px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 34px;
+    }
+
+    .rule {
+      height: 6px;
+      width: 140px;
+      border-radius: 3px;
+      background: linear-gradient(to right, #434e76, #ffb300);
+      margin-bottom: 34px;
+    }
+
+    .role {
+      font-size: 40px;
+      color: #434e76;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-border">
+    <div class="card">
+      <h1>Jens Rottiers</h1>
+      <div class="rule"></div>
+      <div class="role">Test Automation Developer</div>
+    </div>
+  </div>
+</body>
+
+</html>
