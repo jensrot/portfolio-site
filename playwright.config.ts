@@ -15,7 +15,7 @@ export default defineConfig({
         { name: 'mobile-safari', use: { ...devices['iPhone 15'] } },
     ],
     webServer: {
-        command: 'npm run start',
+        command: 'npm run dev',
         url: 'http://localhost:5173',
         reuseExistingServer: true,
     },

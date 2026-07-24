@@ -4,9 +4,7 @@
   "private": true,
   "dependencies": {
     "@chenglou/pretext": "^0.0.5",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
+    "posthog-js": "^1.407.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^6.30.3",
@@ -16,7 +14,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "manual-test-mobile": "npm run start -- --host",
+    "og": "node scripts/generate-og.mjs",
+    "manual-test-mobile": "npm run dev -- --host",
     "e2e-test:headless": "playwright test",
     "e2e-test:headed": "playwright test --headed",
     "e2e-test:ui": "playwright test --ui",
@@ -25,27 +24,11 @@
     "deploy:test": "git checkout test && git merge master && git push origin test && git checkout master && open-cli https://test--jensrot.netlify.app",
     "deploy:all": "git checkout master && git push origin master && git push origin master:test && open-cli https://jensrot.netlify.app && open-cli https://test--jensrot.netlify.app"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^3.1.0",
-    "eruda": "^3.4.3",
     "open-cli": "^9.0.0",
     "typescript": "^5.7.3",
     "vite": "^4.2.2"
