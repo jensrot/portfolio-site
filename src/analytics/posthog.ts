@@ -11,8 +11,11 @@ let client: PostHog | undefined;
 export const getClient = (): PostHog | undefined => client;
 
 /**
- * @description Initializes the PostHog analytics client. This function is designed to be safe to call even when analytics is disabled or still loading, so call sites don't have to guard themselves.
- * @returns {Promise<void>} - A promise that resolves when the analytics client has been initialized.
+ * Initializes the PostHog analytics client. 
+ * This function is designed to be safe to call even when analytics is disabled or still loading.
+ * 
+ * @returns {Promise<void>} A promise that resolves when the analytics client has been initialized.
+ * 
  */
 export const initAnalytics = async (): Promise<void> => {
     if (!analyticsEnabled) { return; }

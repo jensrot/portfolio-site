@@ -7,9 +7,11 @@ interface MousePosition {
 
 /**
  * A custom hook that tracks the user's mouse position globally.
- * * It attaches a 'mousemove' event listener to the window on mount 
+ * It attaches a 'mousemove' event listener to the window on mount 
  * and ensures the listener is removed on unmount to prevent memory leaks.
- * * @returns {MousePosition} An object containing the current `x` and `y` coordinates.
+ * 
+ * @returns {MousePosition} An object containing the current `x` and `y` coordinates.
+ * 
  */
 export default function useMousePosition(): MousePosition {
     const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
