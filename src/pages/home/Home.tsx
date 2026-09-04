@@ -51,6 +51,7 @@ export const Home: React.FC = () => {
                   className="button-particles"
                   quantity={getRandomNumberBetweenTwoValues(30, 70)}
                   staticity={30}
+                  fitToContainer={true}
                 />
                 <span className="button-text">Projects</span>
               </button>

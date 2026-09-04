@@ -11,6 +11,7 @@ interface ParticlesProps {
     color?: string;
     vx?: number;
     vy?: number;
+    fitToContainer?: boolean;
 }
 
 const Particles: React.FC<ParticlesProps> = ({
@@ -22,6 +23,7 @@ const Particles: React.FC<ParticlesProps> = ({
     color = "#ffffff",
     vx = 0,
     vy = 0,
+    fitToContainer = false,
 }) => {
 
     type Circle = {
@@ -95,8 +97,15 @@ const Particles: React.FC<ParticlesProps> = ({
     const resizeCanvas = () => {
         if (canvasContainerRef.current && canvasRef.current && context.current) {
             circles.current.length = 0;
-            canvasSize.current.w = window.innerWidth;
-            canvasSize.current.h = window.innerHeight;
+            // Use the container's width and height if fitToContainer is true, 
+            // otherwise use the window's width and height
+            if (fitToContainer) {
+                canvasSize.current.w = canvasContainerRef.current.offsetWidth;
+                canvasSize.current.h = canvasContainerRef.current.offsetHeight;
+            } else {
+                canvasSize.current.w = window.innerWidth;
+                canvasSize.current.h = window.innerHeight;
+            }
             canvasRef.current.width = canvasSize.current.w * dpr;
             canvasRef.current.height = canvasSize.current.h * dpr;
             canvasRef.current.style.width = `${canvasSize.current.w}px`;
