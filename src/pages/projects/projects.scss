@@ -109,6 +109,7 @@ $margin-bottom-base: 1rem;
         &__technologies-container {
           display: flex;
           flex-wrap: wrap;
+          align-content: flex-end;
           gap: 0.5rem;
 
           .technology {
