@@ -4,7 +4,7 @@
         "live_link": "https://wordbankapp.com/",
         "title": "Word Bank",
         "description": [
-            "I created a native mobile app which allows to add a book you are currently reading and add words you find interesting or difficult in that book. It shows you the explanation of each word using a dictionary. The app is still in development and not live yet."
+            "I created a native mobile app which allows to add a book you are currently reading and add words you find interesting or difficult in that book. It shows you the explanation of each word using a dictionary. Both the web app and native phone app are live."
         ],
         "technologies": [
             "React Native",
