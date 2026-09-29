@@ -158,7 +158,8 @@
         "technologies": [
             "React",
             "Redux",
-            "Material UI"
+            "Material UI",
+            "localStorage"
         ]
     }
 ]
