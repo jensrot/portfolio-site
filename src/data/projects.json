@@ -4,7 +4,32 @@
         "live_link": "https://wordbankapp.com/",
         "title": "Word Bank",
         "description": [
-            "I created a native mobile app which allows to add a book you are currently reading and add words you find interesting or difficult in that book. It shows you the explanation of each word using a dictionary. Both the web app and native phone app are live."
+            "I built a ",
+            {
+                "text": "web app",
+                "url": "https://app.wordbankapp.com/"
+            },
+            " and a ",
+            {
+                "text": "native mobile app",
+                "url": "https://github.com/wordbank-project/word-bank-app/releases"
+            },
+            " that let you track the book you're currently reading and save ",
+            {
+                "text": "words",
+                "url": "https://words.wordbankapp.com/v1/words?includeTotal=true"
+            },
+            " you find interesting or difficult. Each word shows its definition, pulled from a ",
+            {
+                "text": "dictionary",
+                "url": "https://dict.wordbankapp.com/v1/en/word/book"
+            },
+            " I host on ",
+            {
+                "text": "DigitalOcean",
+                "url": "https://www.digitalocean.com/"
+            },
+            "."
         ],
         "technologies": [
             "React Native",
