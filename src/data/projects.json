@@ -35,7 +35,8 @@
             "React Native",
             "Typescript",
             "Expo",
-            "AsyncStorage"
+            "AsyncStorage",
+            "localStorage"
         ]
     },
     {
@@ -119,7 +120,8 @@
         "technologies": [
             "HTML",
             "CSS",
-            "Javascript"
+            "Javascript",
+            "localStorage"
         ]
     },
     {
