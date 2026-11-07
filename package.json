@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@chenglou/pretext": "^0.0.5",
-    "posthog-js": "^1.407.2",
+    "posthog-js": "^1.447.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^6.30.3",
